@@ -12,7 +12,7 @@ def test_parameterized_db_API():
    
     for i in range(0,1):
         if test_case ==jsondata[0]["test_case"]:
-            response = requests.get("https://bea4-103-137-84-186.ngrok.io/read",params={
+            response = requests.get("https://d729-103-137-84-186.ngrok.io/read",params={
                 "category" : jsondata[i]["category"]
             })
             if  response.status_code !=200: 

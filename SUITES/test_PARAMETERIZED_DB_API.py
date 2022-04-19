@@ -45,7 +45,7 @@ def test_parameterized_db_API():
     db_data = get_Data_from_DB()
     for i in range(0,5):
       
-        response = requests.get("https://bea4-103-137-84-186.ngrok.io/read",params={
+        response = requests.get("https://d729-103-137-84-186.ngrok.io/read",params={
             "category" : db_data[i][3]
         })
     

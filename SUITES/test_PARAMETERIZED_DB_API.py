@@ -22,7 +22,7 @@ def get_Data_from_DB():
     # password = "skecher@India"
     driver= con["DRIVER"]["driver"]
     # driver= "{ODBC Driver 17 for SQL Server}"
-    with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password+';Trusted_Connection=no;') as conn:
+    with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
         with conn.cursor() as cursor:
             cursor.execute("SELECT * from skecherProductsWithCategory")
             row = cursor.fetchall()

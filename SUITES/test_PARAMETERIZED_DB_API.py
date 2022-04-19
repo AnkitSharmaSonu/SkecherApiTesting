@@ -25,20 +25,20 @@ def config():
 # get data from database
 def get_Data_from_DB():
     con = config()
-    server = con["SERVER"]["server"]
-    # server = "skecherserver.database.windows.net"
+    # server = con["SERVER"]["server"]
+    server = "skecherserver.database.windows.net"
     # server = con[0]["server"]
-    database = con["DB"]["database"]
-    # database = "skecher_db"
+    # database = con["DB"]["database"]
+    database = "skecher_db"
     # database = con[0]["database"]
-    username = con["LOGIN"]["login"]
-    # username = "adminskecher"
+    # username = con["LOGIN"]["login"]
+    username = "adminskecher"
     # username = con[0]["login"]
-    password = con["PASSWORD"]["password"]
-    # password = "skecher@India"
+    # password = con["PASSWORD"]["password"]
+    password = "skecher@India"
     # password = con[0]["password"]
-    driver= con["DRIVER"]["driver"]
-    # driver= "{ODBC Driver 17 for SQL Server}"
+    # driver= con["DRIVER"]["driver"]
+    driver= "{ODBC Driver 17 for SQL Server}"
     # driver= con[0]["driver"]
     with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
         with conn.cursor() as cursor:

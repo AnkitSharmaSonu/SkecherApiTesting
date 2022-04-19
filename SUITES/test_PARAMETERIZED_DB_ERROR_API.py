@@ -12,16 +12,16 @@ def config():
 # get data from database
 def get_Data_from_DB():
     con = config()
-    server = con["SERVER"]["server"]
-    # server = "skecherserver.database.windows.net"
-    database = con["DB"]["database"]
-    # database = "skecher_db"
-    username = con["LOGIN"]["login"]
-    # username = "adminskecher"
-    password = con["PASSWORD"]["password"]
-    # password = "skecher@India"
-    driver= con["DRIVER"]["driver"]
-    # driver= "{ODBC Driver 17 for SQL Server}"
+    # server = con["SERVER"]["server"]
+    server = "skecherserver.database.windows.net"
+    # database = con["DB"]["database"]
+    database = "skecher_db"
+    # username = con["LOGIN"]["login"]
+    username = "adminskecher"
+    # password = con["PASSWORD"]["password"]
+    password = "skecher@India"
+    # driver= con["DRIVER"]["driver"]
+    driver= "{ODBC Driver 17 for SQL Server}"
     with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
         with conn.cursor() as cursor:
             cursor.execute("SELECT * from skecherProductsWithCategory")
@@ -44,6 +44,6 @@ def test_parameterized_db_API():
     
 
      
-
+# test_parameterized_db_API()
 
      

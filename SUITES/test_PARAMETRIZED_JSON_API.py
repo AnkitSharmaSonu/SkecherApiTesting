@@ -25,7 +25,5 @@ def test_parameterized_db_API():
 
     
 
-     
-
 
      

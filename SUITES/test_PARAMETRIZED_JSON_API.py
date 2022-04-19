@@ -7,6 +7,7 @@ import json
 def test_parameterized_db_API():
     f = open('./json/skechers.json')
     jsondata = json.load(f)
+
     test_case = "TC_API_DATA"
    
     for i in range(0,1):

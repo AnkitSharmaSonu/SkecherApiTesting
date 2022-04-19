@@ -7,38 +7,38 @@ import os
 # read databse details
 def config():
     config = configparser.ConfigParser()
-    # path =os.getcwd().replace("\\","/")+ '/database/config.ini'
+    path =os.getcwd().replace("\\","/")+ '/database/config.ini'
     # config.read( os.getcwd().replace("\\","\\\\")+ ".\\\\database\\\\config.ini")
     # config.read((os.path.join(os.path.abspath(os.path.dirname(__file__)), 'database\config.ini')).replace("\\","/"))
     # config.read(os.getcwd().replace("\\","\\\\")+ "\\database\\config.ini")
     # config.read(os.path.dirname(os.path.abspath(__file__)),"config.ini")
     # config.read("config.ini")
     # print("here is the path---->>",str(path))
-    # config.read("config.ini")
+    config.read(path)
     # connection = open(path)
     # config = json.load(connection)
     # config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'database\config.ini'))
-    config.read('./database/config.ini')
+    # config.read('./database/config.ini')
     # print("here is the config file----->>>",  config["SERVER"])
     return config
 
 # get data from database
 def get_Data_from_DB():
     con = config()
-    # server = con["SERVER"]["server"]
-    server = "skecherserver.database.windows.net"
+    server = con["SERVER"]["server"]
+    # server = "skecherserver.database.windows.net"
     # server = con[0]["server"]
-    # database = con["DB"]["database"]
-    database = "skecher_db"
+    database = con["DB"]["database"]
+    # database = "skecher_db"
     # database = con[0]["database"]
-    # username = con["LOGIN"]["login"]
-    username = "adminskecher"
+    username = con["LOGIN"]["login"]
+    # username = "adminskecher"
     # username = con[0]["login"]
-    # password = con["PASSWORD"]["password"]
-    password = "skecher@India"
+    password = con["PASSWORD"]["password"]
+    # password = "skecher@India"
     # password = con[0]["password"]
-    # driver= con["DRIVER"]["driver"]
-    driver= "{ODBC Driver 17 for SQL Server}"
+    driver= con["DRIVER"]["driver"]
+    # driver= "{ODBC Driver 17 for SQL Server}"
     # driver= con[0]["driver"]
     with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
         with conn.cursor() as cursor:

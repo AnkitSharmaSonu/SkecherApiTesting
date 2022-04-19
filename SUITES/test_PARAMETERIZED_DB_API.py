@@ -62,7 +62,7 @@ def test_parameterized_db_API():
             assert response.status_code ==200
 
 
-test_parameterized_db_API()
+# test_parameterized_db_API()
 
      
 
